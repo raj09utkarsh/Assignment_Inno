@@ -11,7 +11,7 @@ The main aim of this program is to send the user an email consisting of informat
 Download the main.py file <br/>
 
 ## Changes need to be made before running this program
-  *<b>In Line no. 11</b> - Enter the hostname, user and password of mysql database. <br/>
-  *<b>In Line no. 54 and 55</b> - Enter Sender's Email address and Password in specified format. <br/>
+  * <b>In Line no. 11</b> - Enter the hostname, user and password of mysql database. <br/>
+  * <b>In Line no. 54 and 55</b> - Enter Sender's Email address and Password in specified format. <br/>
   
 ## Run python3 main.py in the terminal
