@@ -1,54 +1,58 @@
 # Summer Intern Hiring Challenge
 # By Rohit Samudralwar
-
+import sys
 import MySQLdb
 import smtplib
 
+# try-catch, if program fails to establish the DATABASE connection
+try:
+	# Open database connection
+	# Enter the mysql hostname, user and password
+	# Example db = MySQLdb.connect(host="localhost",user="root",passwd="12345")
+	db = MySQLdb.connect(host="localhost",user="[root]",passwd="[password]")
 
-# Open database connection
-# Enter the mysql hostname, user and password
-# Example db = MySQLdb.connect(host="localhost",user="root",passwd="12345")
-db = MySQLdb.connect(host="localhost",user="[root]",passwd="[password]")
+	# prepare a cursor object using cursor() method
+	cursor = db.cursor()
 
-# prepare a cursor object using cursor() method
-cursor = db.cursor()
+	query_db= "show databases;"
+	cursor.execute(query_db)
 
-query_db= "show databases;"
-cursor.execute(query_db)
+	# Find whether database exits or not
+	# if not then create one with name : SERIES_DATABASE_1
+	if ('SERIES_DATABASE_1',) not in cursor:
+		# insert_data_into_table(cursor)
+		query_cdb = "create database SERIES_DATABASE_1;"
+		cursor.execute(query_cdb)
+		# selecting database(mysql)
+		cursor.execute('use SERIES_DATABASE_1')
+		
+		query_table = "create table seriesdb(name VARCHAR(30), year INT(4), description VARCHAR(100));"
+		cursor.execute(query_table)
 
-# Find whether database exits or not
-# if not then create one with name : SERIES_DATABASE_1
-if ('SERIES_DATABASE_1',) not in cursor:
-	# insert_data_into_table(cursor)
-	query_cdb = "create database SERIES_DATABASE_1;"
-	cursor.execute(query_cdb)
-	# selecting database(mysql)
+		# Hardcoded database only for testing purpose
+		query="insert into seriesdb values ('got','2011','Next season will be released in 2019');"
+		cursor.execute(query);db.commit()
+		query="insert into seriesdb values ('friends','1994','So sorry, The last episode was aired in 2004');"
+		cursor.execute(query);db.commit()
+		query="insert into seriesdb values ('flash','2014','Next season will be released on 9-Oct 2018');"
+		cursor.execute(query);db.commit()
+		query="insert into seriesdb values ('sacred games','2018','Next season will be released in Jan 2019');"
+		cursor.execute(query);db.commit()
+		query="insert into seriesdb values ('game of thrones','2011','Next season will be released in 2019');"
+		cursor.execute(query);db.commit()
+		query="insert into seriesdb values ('suits','2011','Last video was aired on July-2018');"
+		cursor.execute(query);db.commit()
+		query="insert into seriesdb values ('black mirror','2011','Next season will be released in 2019');"
+		cursor.execute(query);db.commit()
+		query="insert into seriesdb values ('breaking bad','2008','So sorry, The last episode was aired in 2013');"
+		cursor.execute(query);db.commit()
+		query="insert into seriesdb values ('gotham','2014','The next season will start this year');"
+		cursor.execute(query);db.commit()
+
 	cursor.execute('use SERIES_DATABASE_1')
-	
-	query_table = "create table seriesdb(name VARCHAR(30), year INT(4), description VARCHAR(100));"
-	cursor.execute(query_table)
-
-	# Hardcoded database only for testing purpose
-	query="insert into seriesdb values ('got','2011','Next season will be released in 2019');"
-	cursor.execute(query);db.commit()
-	query="insert into seriesdb values ('friends','1994','So sorry, The last episode was aired in 2004');"
-	cursor.execute(query);db.commit()
-	query="insert into seriesdb values ('flash','2014','Next season will be released on 9-Oct 2018');"
-	cursor.execute(query);db.commit()
-	query="insert into seriesdb values ('sacred games','2018','Next season will be released in Jan 2019');"
-	cursor.execute(query);db.commit()
-	query="insert into seriesdb values ('game of thrones','2011','Next season will be released in 2019');"
-	cursor.execute(query);db.commit()
-	query="insert into seriesdb values ('suits','2011','Last video was aired on July-2018');"
-	cursor.execute(query);db.commit()
-	query="insert into seriesdb values ('black mirror','2011','Next season will be released in 2019');"
-	cursor.execute(query);db.commit()
-	query="insert into seriesdb values ('breaking bad','2008','So sorry, The last episode was aired in 2013');"
-	cursor.execute(query);db.commit()
-	query="insert into seriesdb values ('gotham','2014','The next season will start this year');"
-	cursor.execute(query);db.commit()
-
-cursor.execute('use SERIES_DATABASE_1')
+except:
+	print('There is error in establishing the DATABASE connection.\nMake sure your system is installed with mysql with python \n \n')
+	sys.exit()
 
 # Enter the Senders email address and Password below
 gmailAddress = 'example@gmail.com'
@@ -96,7 +100,7 @@ try:
 	print(" \n Mail has been sent to your email!\n")
 	mailServer.quit()
 except:
-	print('The mail could not be Sent')
-
+	print('The mail could not be Sent \n \n')
+	sys.exit()
 # disconnect from server
 db.close()	
