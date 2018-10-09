@@ -26,6 +26,11 @@ The main aim of this program is to send user an email consisting of information 
   * You have to give the required input in the terminal, such as your email address and TV series you watch.
   * Then you will receive a mail containing all the information about that TV series(Shown below).
   
+  See the Example:
+  ![Terminal Screenshot](Terminal_SS.png)
+  ![Mail Screenshot](Mail_SS.png)
+  
+  
 ### Information about some of the TV series has been hardcoded in the python program(For the testing Purpose).
 From line 31 to 50.
 
