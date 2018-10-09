@@ -1,9 +1,9 @@
 # Summer Intern Hiring Challenge
 
 ##
-# What does this do?
+# What does this Application do?
 This Program takes input as Email ID of the User and names of TV series.<br/>
-The main aim of this program is to send the user an email consisting of information regarding when the next episode of this TV series will be aired or when the last episode was aired.<br/>
+The main aim of this program is to send user an email consisting of information regarding when the next episode of these TV series will be aired or when the last episode was aired and description.<br/>
 
 ##
 
