@@ -82,7 +82,7 @@ for i in TvSeries:
 
 msg+="\n \n Thanks \n \n"
 
-print(msg)
+
 
 # Below is code to send mail to the Client using SMTPLIB 
 
@@ -93,7 +93,7 @@ try:
 	mailServer.starttls()
 	mailServer.login(gmailAddress, gmailPassword)
 	mailServer.sendmail(gmailAddress, mailTo, Message)
-	print(" \n Sent!\n")
+	print(" \n Mail has been sent to your email!\n")
 	mailServer.quit()
 except:
 	print('The mail could not be Sent')
