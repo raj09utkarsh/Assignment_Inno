@@ -14,6 +14,7 @@ The main aim of this program is to send user an email consisting of information 
   * SMTPLIB should be installed in your system.
   * Your Gmail should allow third party apps(Less secure apps) to send mails.<br/>
   Check this here - [Click here to check](https://www.google.com/settings/security/lesssecureapps). If it is off, then unblock it.
+  * You must be connected to the Internate.
   
 ### 2. Download the main.py file <br/>
 
