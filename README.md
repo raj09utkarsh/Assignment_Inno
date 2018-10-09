@@ -8,13 +8,20 @@ The main aim of this program is to send user an email consisting of information 
 ##
 
 # How to use this Program?
-### 1. Download the main.py file <br/>
 
-### 2. Changes need to be made before running this program
+### 1. Please verify these points before executing the code.
+  * Make sure your system is installed with Mysql and mysqldb python.
+  * SMTPLIB should be installed in your system.
+  * Your Gmail should allow third party apps(Less secure apps) to send mails.<br/>
+  Check this here - [Click here to check](https://www.google.com/settings/security/lesssecureapps). If it is off, then unblock it.
+  
+### 2. Download the main.py file <br/>
+
+### 3. Changes need to be made before running this program
   * <b>In Line no. 11</b> - Enter the hostname, user and password of mysql database. <br/>
   * <b>In Line no. 54 and 55</b> - Enter Sender's Email address and Password in specified format. <br/>
   
-### 3. Run python3 main.py in the terminal(After going to specific directory)
+### 4. Run python3 main.py in the terminal(After going to specific directory)
   * You have to give the required input in the terminal, such as your email address and TV series you watch.
   * Then you will receive a mail containing all the information about that TV series(Shown below).
   
