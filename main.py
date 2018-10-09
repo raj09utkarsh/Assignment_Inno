@@ -87,9 +87,9 @@ for i in TvSeries:
 msg+="\n \n Thanks \n \n"
 
 
+print('\n Sending...!\n \n') 
 
 # Below is code to send mail to the Client using SMTPLIB 
-
 try:
 	Sub='Response for your queries '
 	Message='Subject:{}\n\n{}'.format(Sub,msg)
