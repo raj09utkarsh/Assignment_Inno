@@ -24,13 +24,13 @@ The main aim of this program is to send user an email consisting of information 
   
 ### 4. Run python3 main.py in the terminal(After going to specific directory)
   * You have to give the required input in the terminal, such as your email address and TV series you watch.
-  * Then you will receive a mail containing all the information about that TV series(Shown below).
+  * Then you will receive a mail containing all the information about that TV series(Example Shown below).
   
-  See the Example:</br>
-  Terminal : </br>
+### See the Example:</br>
+### Terminal : </br>
   ![Terminal Screenshot](Terminal_SS.png)
   </br>
-  Received Mail : </br>
+### Received Mail : </br>
   ![Mail Screenshot](Mail_SS.png)
   
   
@@ -38,5 +38,5 @@ The main aim of this program is to send user an email consisting of information 
 From line 31 to 50.
 
 ### What more can be done in the Future : 
-  * If suppose the database does not have any details about some specific TV series, Thenusing IMDb API we can update the database and send mail to the Client.
+  * If suppose the database does not have any details about some specific TV series, Then using IMDb API we can update the database and send mail to the Client.
   * Even client can also contribute to the database if the data is not available in the DATABASE, i.e if data is not present then the program will ask the client to enter the missing data and reward points will be given to them.
