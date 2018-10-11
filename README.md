@@ -19,8 +19,8 @@ The main aim of this program is to send user an email consisting of information 
 ### 2. Download the main.py file <br/>
 
 ### 3. Changes need to be made before running this program
-  * <b>In Line no. 11</b> - Enter the hostname, user and password of mysql database. <br/>
-  * <b>In Line no. 54 and 55</b> - Enter Sender's Email address and Password in specified format. <br/>
+  * <b>In Line no. 12</b> - Enter the hostname, user and password of mysql database. <br/>
+  * <b>In Line no. 58 and 59</b> - Enter Sender's Email address and Password in specified format. <br/>
   
 ### 4. Run python3 main.py in the terminal(After going to specific directory)
   * You have to give the required input in the terminal, such as your email address and TV series you watch.
@@ -35,7 +35,11 @@ The main aim of this program is to send user an email consisting of information 
   
   
 ### Information about some of the TV series has been hardcoded in the python program(For the testing Purpose).
-From line 31 to 50.
+From line 32 to 50 (in main.py).</br>
+</br>
+DATABASE Name - SERIES_DATABASE_1</br>
+Table Name - seriesdb </br>
+Tables columns - {Name, Year, Description}</br>
 
 ### What more can be done in the Future : 
   * If suppose the database does not have any details about some specific TV series, Then using IMDb API we can update the database and send mail to the Client.
