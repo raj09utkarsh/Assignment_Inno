@@ -3,7 +3,7 @@
 ##
 # What does this Application do?
 This Program takes input as Email ID of the User and names of TV series.<br/>
-The main aim of this program is to send user an email consisting of information regarding when the next episode of these TV series will be aired or when the last episode was aired and description.<br/>
+The main aim of this program is to send user an email consisting of information regarding when the next episode of these TV series will be aired or the series is finished.<br/>
 
 ##
 
@@ -19,8 +19,8 @@ The main aim of this program is to send user an email consisting of information 
 ### 2. Download the main.py file <br/>
 
 ### 3. Changes need to be made before running this program
-  * <b>In Line no. 12</b> - Enter the hostname, user and password of mysql database. <br/>
-  * <b>In Line no. 58 and 59</b> - Enter Sender's Email address and Password in specified format. <br/>
+  * <b>In Line no. 152</b> - Enter the hostname, user and password of mysql database. <br/>
+  * <b>In Line no. 186 and 187</b> - Enter Sender's Email address and Password in specified format. <br/>
   
 ### 4. Run python3 main.py in the terminal(After going to specific directory)
   * You have to give the required input in the terminal, such as your email address and TV series you watch.
@@ -33,14 +33,10 @@ The main aim of this program is to send user an email consisting of information 
 ### Received Mail : </br>
   ![Mail Screenshot](Mail_SS.png)
   
-  
-### Information about some of the TV series has been hardcoded in the python program(For the testing Purpose).
-From line 32 to 50 (in main.py).</br>
-</br>
+### DATABASE Info:
 DATABASE Name - SERIES_DATABASE_1</br>
-Table Name - seriesdb </br>
-Tables columns - {Name, Year, Description}</br>
+Table Name - userdata </br>
+Tables columns - {email, tvseries}</br>
 
 ### What more can be done in the Future : 
-  * If suppose the database does not have any details about some specific TV series, Then using IMDb API we can update the database and send mail to the Client.
-  * Even client can also contribute to the database if the data is not available in the DATABASE, i.e if data is not present then the program will ask the client to enter the missing data and reward points will be given to them.
+  * 
