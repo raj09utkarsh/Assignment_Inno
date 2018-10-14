@@ -28,10 +28,10 @@ The main aim of this program is to send user an email consisting of information 
   
 ### See the Example:</br>
 ### Terminal : </br>
-  ![Terminal Screenshot](Terminal_SS.png)
+  ![Terminal Screenshot](terminal_new.png)
   </br>
 ### Received Mail : </br>
-  ![Mail Screenshot](Mail_SS.png)
+  ![Mail Screenshot](email_SS.png)
   
 ### DATABASE Info:
 DATABASE Name - SERIES_DATABASE_1</br>
