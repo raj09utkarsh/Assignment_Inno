@@ -1,5 +1,6 @@
 # Summer Intern Hiring Challenge
 # By Rohit Samudralwar
+# Please refer Read_Me file sent with this Assignment
 
 import sys
 import MySQLdb
@@ -44,27 +45,7 @@ def series_finished_or_not(url_imdb):
 	else:
 		return 'finished'
 
-# Code to extract next episode date from alternate Website(Optional).
-def find_next_episode_alternate(name):
-	name = name.replace(" ", "-")
-	response = get("https://next-episode.net/" + name)
-	html = response.text
-	soup = BeautifulSoup(html, 'html.parser')
-	next_episode_div =  soup.select("#next_episode")
-	t =  next_episode_div[0].text
-	if 'Date' in t:
-		index = t.find("Date")
-		date = ""
-		begin = index+5
-		end = index+25
-		for i in range(index+5, index+21):
-			date += t[i]
-		return "The next episode will be aired on " + date
-	else:
-		m = t.replace("\t", "")
-		return m
-
-# Dictionary to get the corresponding number for month.  
+# Dictionary to get the corresponding number for month.  	
 def find_month(mon):
 	mon_map = {'Jan':'01','Feb':'02','Mar':'03','Apr':'04','May':'05','Jun':'06','Jul':'07','Aug':'08','Sep':'09','Oct':'10','Nov':'11','Dec':'12'}
 	return str(mon_map[mon])
@@ -149,7 +130,7 @@ def store_in_db(mailTo,series_names):
 		# Open database connection
 		# Enter the mysql hostname, user and password
 		# Example db = MySQLdb.connect(host="localhost",user="root",passwd="12345")
-		db = MySQLdb.connect(host="localhost",user="root",passwd="password")
+		db = MySQLdb.connect(host="localhost",user="root",passwd="1111")
 
 		# prepare a cursor object using cursor() method
 		cursor = db.cursor()
@@ -159,18 +140,18 @@ def store_in_db(mailTo,series_names):
 
 		# Find whether database exits or not
 		# if not then create one with name : 'SERIES_DATABASE_1'
-		if ('SERIES_DATABASE_1',) not in cursor:
+		if ('SERIES_DATABASE_1u',) not in cursor:
 			# insert_data_into_table(cursor)
-			query_cdb = "create database SERIES_DATABASE_1;"
+			query_cdb = "create database SERIES_DATABASE_1u;"
 			cursor.execute(query_cdb)
 			# selecting database(mysql)
-			cursor.execute('use SERIES_DATABASE_1')
+			cursor.execute('use SERIES_DATABASE_1u')
 			
 			# create table with name : 'userdata'
 			query_table = "create table userdata(email VARCHAR(30),tvseries VARCHAR(500));"
 			cursor.execute(query_table)
 
-		cursor.execute('use SERIES_DATABASE_1')
+		cursor.execute('use SERIES_DATABASE_1u')
 	except:
 		print('Error\n')
 
@@ -180,11 +161,11 @@ def store_in_db(mailTo,series_names):
 	db.close()
 
 def send_mail(mailTo,msg):
-	print('\nSending mail...!\n \n') 
+	print('\nSending mail...!\n') 
 
-	# Enter the below details. Senders gmail address and Password below.
-	gmailAddress = 'example@gmail.com'
-	gmailPassword = 'password'
+	# Enter the Senders email address and Password below
+	gmailAddress = 'example.new.someone@gmail.com'		# The default Id-password are working
+	gmailPassword = 'qwerty@123'
 	
 	# Below is code to send mail to the Client using SMTPLIB 
 	try:
@@ -211,7 +192,7 @@ series_names = input('Enter the tv series in comma separated form: ')
 try:
 	store_in_db(mailTo,series_names)
 except:
-	print('There is error in establishing the DATABASE connection.\nMake sure your system is installed with mysql and python \n \n')
+	print('There is error in establishing the DATABASE connection.\nMake sure your system is installed with mysql and python\n \nTrying to send mail. \n \n')
 		
 # Collecting all TV series in array
 series_names = series_names.replace(', ',',')
@@ -222,6 +203,9 @@ print('\nFinding the information...\n')
 msg="\nHello buddy,\nBelow are the details of queries which were asked by you: \n \n"				
 
 for name in tvseries:
+	# current date
+	now = datetime.datetime.now()
+	curr_date = str(now.year) + str(now.month) + str(now.day)
 	msg+='TV series name - '+ name+"\n"
 	try:
 		# Searching the TV series in imdb and returning the first result.
@@ -229,14 +213,15 @@ for name in tvseries:
 		# Finding the current season going on
 		curr_season_url = find_current_season_url(series_url)
 		# Function that returns the next episode of the TV Series.
-		next_episode_date = find_next_episode_date(curr_season_url)
+		try:
+			next_episode_date = find_next_episode_date(curr_season_url)
+		except:
+			msg+="Next season will begin in year "+ str(now.year + 1)+"\n"
+			continue 
 		# Finding wherher the TV series finished its all episodes or not. 
 		finish = series_finished_or_not(series_url)		
 
 		next_episode_date_in_format = next_episode_date[6:8] + "-" + next_episode_date[4:6] + "-" + next_episode_date[0:4]
-		# current date
-		now = datetime.datetime.now()
-		curr_date = str(now.year) + str(now.month) + str(now.day)
 	except:
 		msg+='Entered the wrong name, Please check the spelling.\n \n'
 		continue
@@ -257,7 +242,7 @@ for name in tvseries:
 	elif len(next_episode_date) == 8:
 		msg+='The next episode airs on ' + next_episode_date_in_format + "\n \n"
 
-msg+="\n \nThanks \n \n"
+msg+="\n \nThanks and Regards,\nRohit Samudralwar \n \n"
 # print(msg)
 print('All set...!')
 # Function to send mail.
