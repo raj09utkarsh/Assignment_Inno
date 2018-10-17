@@ -20,7 +20,9 @@ The main aim of this program is to send user an email consisting of information 
 
 ### 3. Changes need to be made before running this program
   * <b>In Line no. 133</b> - Enter the hostname, user and password of mysql database. <br/>
+  (Default values : host="localhost",user="root",passwd="1111").<br/>
   * <b>In Line no. 167 and 168</b> - Enter Sender's Email address and Password in specified format. <br/>
+  (Default ID-password will work fine : my fake ID-password).
   
 ### 4. Run python3 main.py in the terminal(After going to specific directory)
   * You have to give the required input in the terminal, such as your email address and TV series you watch.
