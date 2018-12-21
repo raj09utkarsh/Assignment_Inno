@@ -1,4 +1,4 @@
-# Summer Intern Hiring Challenge
+
 
 ##
 # What does this Application do?
